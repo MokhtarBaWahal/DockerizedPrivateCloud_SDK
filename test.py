@@ -1,7 +1,7 @@
 import rospy
-from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 from sensor_msgs.msg import CompressedImage
+from geometry_msgs.msg import Twist
 
 def control_callback(data):
     print('IMPLEMENT CALLBACK control_callback')
