@@ -118,7 +118,7 @@ using RosMessageTypes.{import_type};
     def write_pub_class(self, type, name):
         _, type_name = type.split("/")
         self.file.write(f"""
-public class {f"{name}Subscriber"} : MonoBehaviour
+public class {f"{name}Pubscriber"} : MonoBehaviour
 {{
 
     void Start()
