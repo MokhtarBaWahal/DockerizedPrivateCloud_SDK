@@ -46,6 +46,7 @@ class FileWriter:
 {name}_sub = rospy.Subscriber('/{name}',{type.split("/")[-1]},{callback})
             """
             )
+
     def write_namespaces(self, namespace):
         self.file.write(f"""
 sio = socketio.Client()
@@ -66,9 +67,69 @@ def disconnect():
 #def fn(data): 
     #print('data')\n\n""")
 
+
     def write_middleware_main(self, namespace):
         self.file.write(f"""
 if __name__ == '__main__':
     sio.connect(os.path.expandvars('http://$HOST_IP:8000/{namespace}'))\n
     rospy.spin()""")
-        self.file.write("\n")   
+        self.file.write("\n")  
+
+    
+    def write_sub_header(self, type):
+        import_type, type_name = type.split("/")
+        import_type = import_type.capitalize().replace("_msgs",      "")
+        self.file.write(        f"""
+using UnityEngine;
+using Unity.Robotics.ROSTCPConnector;
+using RosMessageTypes.{import_type};  
+""")
+        
+
+    def write_sub_class(self, type, name):
+        _, type_name = type.split("/")
+        self.file.write(f"""
+public class {f"{name}Subscriber"} : MonoBehaviour
+{{
+    void Start()
+    {{
+        // start the ROS connection
+        ROSConnection.GetOrCreateInstance().Subscribe<{type_name}Msg>("{name}", {name}_OnMsgReceived);
+    }}
+
+    void {name}_OnMsgReceived ({type_name}Msg msg )
+    {{
+        // Add the logic of your app when receiving the new msg from the ros topic {name}.
+    }}
+}}
+""")
+        
+        
+    def write_pub_header(self, type):
+        import_type, type_name = type.split("/")
+        import_type = import_type.capitalize().replace("_msgs",      "")
+        self.file.write(        f"""
+using UnityEngine;
+using Unity.Robotics.ROSTCPConnector;
+using RosMessageTypes.{import_type};  
+""")
+        
+
+    def write_pub_class(self, type, name):
+        _, type_name = type.split("/")
+        self.file.write(f"""
+public class {f"{name}Subscriber"} : MonoBehaviour
+{{
+
+    void Start()
+    {{
+        // start the ROS connection
+        ROSConnection.GetOrCreateInstance().RegisterPublisher<{type_name}Msg>("{name}");
+    }}
+
+    private void Update()
+    {{
+        // Add the logic of your app when publishing the new msg from the ros topic "{name}"
+    }}
+}}
+""")

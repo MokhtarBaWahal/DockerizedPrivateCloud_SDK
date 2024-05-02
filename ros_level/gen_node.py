@@ -4,7 +4,7 @@ import sys
 
 sys.path.append("..")
 import middleware.middleware_gen as mw
-
+import unity_side.unity_topics_gen as us
 
 class RosNodeGen:
     def __init__(self, yml_file):
@@ -14,6 +14,7 @@ class RosNodeGen:
 
         with open(yml_file, "r") as file:
             parser = yaml.safe_load(file)
+
         if "ros_node" in parser:
             print("Valid YAML file")
             try:
@@ -36,6 +37,7 @@ class RosNodeGen:
             )
             n = node.Node(node_info)
             middleware = mw.Middleware(node_info)
+            unityside = us.UnityTopics(node_info)
 
 
 if __name__ == "__main__":

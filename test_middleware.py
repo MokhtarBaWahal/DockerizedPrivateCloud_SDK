@@ -1,6 +1,7 @@
 import rospy
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String, String
+from sensor_msgs.msg import CompressedImage
 
 import socketio
 import os
@@ -36,7 +37,7 @@ control_pub = rospy.Publisher('/control', String, queue_size=10)
 
 metric_pub = rospy.Publisher('/metric', String, queue_size=10)
 
-manga_pub = rospy.Publisher('/manga', Twist, queue_size=10)
+cam_pub = rospy.Publisher('/cam', CompressedImage, queue_size=10)
 
 if __name__ == '__main__':
     sio.connect(os.path.expandvars('http://$HOST_IP:8000/mariam_namespace'))

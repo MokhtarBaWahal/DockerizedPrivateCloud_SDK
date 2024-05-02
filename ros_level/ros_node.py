@@ -26,6 +26,7 @@ class Node:
             # parse imports types
             writer = templates.FileWriter(file=file)
             imports, types = parser.Parser.parse_types(ros_node_info)
+            print(imports, types)
             # funciton to write the imports in the file
             writer.write_imports(imports, types)
 
