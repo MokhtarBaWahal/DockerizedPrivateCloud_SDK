@@ -1,7 +1,7 @@
 import rospy
 from std_msgs.msg import String, String
-from sensor_msgs.msg import CompressedImage
 from geometry_msgs.msg import Twist
+from sensor_msgs.msg import CompressedImage
 
 import socketio
 import os

@@ -3,12 +3,15 @@ using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Geometry;  
 
-public class cmd_velSubscriber : MonoBehaviour
+
+// Add any variables here, if you want to make it visable in the unity editor make it public
+                        
+public class cmd_velPublisher : MonoBehaviour
 {
 
     void Start()
     {
-        // start the ROS connection
+        // This line starts the ROS connection
         ROSConnection.GetOrCreateInstance().RegisterPublisher<TwistMsg>("cmd_vel");
     }
 

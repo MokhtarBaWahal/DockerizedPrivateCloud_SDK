@@ -8,7 +8,7 @@ def write_unity_subscribers( subscribers):
 
         for sub in subscribers:
 
-            with open(f"unity_side/scripts/{sub[0]}unitySubscriber.cs", "w") as file:
+            with open(f"unity_side/scripts/{sub[0]}Subscriber.cs", "w") as file:
                 file = templates.FileWriter(file=file)
                 file.write_sub_header(type=sub[1])
                 file.write_sub_class(type =sub[1], name =sub[0])

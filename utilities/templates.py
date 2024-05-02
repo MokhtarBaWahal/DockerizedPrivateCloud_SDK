@@ -88,16 +88,20 @@ using RosMessageTypes.{import_type};
 
     def write_sub_class(self, type, name):
         _, type_name = type.split("/")
-        self.file.write(f"""
+        self.file.write(f"""             
+           
 public class {f"{name}Subscriber"} : MonoBehaviour
 {{
+
+    // Add any variables here, if you want to make it visable in the unity editor make it public
+
     void Start()
     {{
-        // start the ROS connection
-        ROSConnection.GetOrCreateInstance().Subscribe<{type_name}Msg>("{name}", {name}_OnMsgReceived);
+        // This line starts the ROS connection
+        ROSConnection.GetOrCreateInstance().Subscribe<{type_name}Msg>("{name}", OnMsgReceived);
     }}
 
-    void {name}_OnMsgReceived ({type_name}Msg msg )
+    void OnMsgReceived ({type_name}Msg msg )
     {{
         // Add the logic of your app when receiving the new msg from the ros topic {name}.
     }}
@@ -107,7 +111,7 @@ public class {f"{name}Subscriber"} : MonoBehaviour
         
     def write_pub_header(self, type):
         import_type, type_name = type.split("/")
-        import_type = import_type.capitalize().replace("_msgs",      "")
+        import_type = import_type.capitalize().replace("_msgs","")
         self.file.write(        f"""
 using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
@@ -118,12 +122,17 @@ using RosMessageTypes.{import_type};
     def write_pub_class(self, type, name):
         _, type_name = type.split("/")
         self.file.write(f"""
+
+
+                        
 public class {f"{name}Publisher"} : MonoBehaviour
 {{
 
+    // Add any variables here, if you want to make it visable in the unity editor make it public
+
     void Start()
     {{
-        // start the ROS connection
+        // This line starts the ROS connection
         ROSConnection.GetOrCreateInstance().RegisterPublisher<{type_name}Msg>("{name}");
     }}
 

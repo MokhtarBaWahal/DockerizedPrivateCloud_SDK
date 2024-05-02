@@ -19,12 +19,22 @@ ros_node:
         name: "metric"
         type:  "std_msgs/String"
         middleware_flag: 1
-        unity_sub_fag: 1
-        unity_pub_fag: 1
+        unity_sub_fag: 0
+        unity_pub_fag: 0
       topic_3: 
         name: "cam"
         type:  "sensor_msgs/CompressedImage"
         middleware_flag: 1
         unity_sub_fag: 1
         unity_pub_fag: 0
+      
+      topic_4: 
+        name: "ultra_sonic_unity"
+        type:  "std_msgs/Float32"
+        middleware_flag: 0
+        unity_sub_fag: 1
+        unity_pub_fag: 0
+
+      
+  
 
