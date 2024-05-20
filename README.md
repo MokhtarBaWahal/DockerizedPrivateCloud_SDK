@@ -2,14 +2,14 @@
 
 ## Overview
 
-This repository contains an extended version of an open-source SDK for creating ROS (Robot Operating System) middleware and digital twin environments. The extension adds integration with Virtual Reality (VR) environments via the generation of ROS subscribers and publishers that interact with ROS using the ROS-TCP-Connector.
+This repository contains an extended version of an open-source SDK for creating ROS (Robot Operating System) level files and  middleware for digital twin systems. The extension adds integration with Virtual Reality (VR) environments via the generation of ROS subscribers and publishers that interact with ROS using the ROS-TCP-Connector.
 
 ## Features
 
 - **ROS Node Configuration**: Configure the twin environment using a YAML file.
 - **ROS Topic Integration**: Publish and subscribe to ROS topics within the virtual environment.
 - **Middleware Flagging**: Control middleware interaction through configurable flags.
-- **Unity Integration**: Enable interaction with Unity3D environments through subscriber and publisher flags.
+- **Unity Integration**: Enable interaction with Unity3D environments through subscriber and publisher .
 
 ## Installation
 
