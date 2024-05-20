@@ -25,11 +25,6 @@ This repository contains an extended version of an open-source SDK for creating 
     pip install -r requirements.txt
     ```
 
-3. Run the setup script to configure the SDK:
-
-    ```bash
-    python setup.py install
-    ```
 
 ## Usage
 
@@ -76,7 +71,7 @@ This repository contains an extended version of an open-source SDK for creating 
 2. Run the SDK with the configured settings:
 
     ```bash
-    python ros_vr_sdk.py
+    python setup.py
     ```
 
 ## Contributing
