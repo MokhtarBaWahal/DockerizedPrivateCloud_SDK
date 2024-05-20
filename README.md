@@ -16,7 +16,7 @@ This repository contains an extended version of an open-source SDK for creating 
 1. Clone this repository to your local machine:
 
     ```bash
-    [git clone https://github.com/your-username/ros-vr-sdk.git](https://github.com/MokhtarBaWahal/DockerizedPrivateCloud_SDK.git)
+    [git clone https://github.com/MokhtarBaWahal/DockerizedPrivateCloud_SDK.git]()
     ```
 
 2. Install dependencies using `pip`:
