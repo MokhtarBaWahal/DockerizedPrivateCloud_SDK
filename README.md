@@ -8,8 +8,8 @@ This repository contains an extended version of an open-source SDK for creating 
 
 - **ROS Node Configuration**: Configure the twin environment using a YAML file.
 - **ROS Topic Integration**: Publish and subscribe to ROS topics within the virtual environment.
-- **Middleware Flagging**: Control middleware interaction through configurable flags.
 - **Unity Integration**: Enable interaction with Unity3D environments through subscriber and publisher .
+
 
 ## Installation
 
